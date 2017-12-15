@@ -1,4 +1,4 @@
-#include "BigNumber.h"
+#include "Types/BigNumber.h"
 #include <stdio.h>
 
 #define PRINT_BIG(number) printf("%s = %s = %s\n", number.toString(false).c_str(),number.toString().c_str(), number.toStringE().c_str())

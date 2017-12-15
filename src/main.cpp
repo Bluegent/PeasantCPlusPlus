@@ -31,5 +31,7 @@ int main(int argc, const char * argv[])
 	PRINT_BIG(two);
 	PRINT_BIG(three);
 	PRINT_BIG(four);
+	long double test = 15000000000000000000000003.1415926535;
+	printf("%1.20Lf\n", test);
 	return 0;
 }

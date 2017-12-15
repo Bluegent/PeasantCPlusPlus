@@ -1,4 +1,9 @@
 SET(OGRE_PATH "Ogre")
+SET(OGRE_DOWNLOAD_DEST ${CMAKE_CURRENT_LIST_DIR}/Ogre_Rel_VS2015.7z)
+IF(NOT EXISTS  ${OGRE_DOWNLOAD_DEST})
+	file(DOWNLOAD 
+	"https://drive.google.com/uc?authuser=0&id=1MFFmZaisy5OdsGTCFP5m0RAzhu-_nTrc&export=download" ${OGRE_DOWNLOAD_DEST})
+ENDIF()
 IF(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/${OGRE_PATH})
     find_program(7Z_EXE 7z PATHS "$ENV{ProgramFiles}/7-Zip") 
 	IF(7Z_EXE)

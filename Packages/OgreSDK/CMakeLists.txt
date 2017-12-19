@@ -5,6 +5,9 @@ if(NOT EXISTS  ${OGRE_DOWNLOAD_DEST})
 	if(${OGRE_VER} STREQUAL "VS2015")
 		file(DOWNLOAD 
 		"https://drive.google.com/uc?authuser=0&id=1MFFmZaisy5OdsGTCFP5m0RAzhu-_nTrc&export=download" ${OGRE_DOWNLOAD_DEST})
+	elseif(${OGRE_VER} STREQUAL "VS2017")
+		file(DOWNLOAD 
+		"https://drive.google.com/uc?authuser=0&id=1z7D6OmytpQuMBSpS09q50ma_qUnHDfou&export=download" ${OGRE_DOWNLOAD_DEST})
 	else()
 		message("You're shit out of luck, budddy.")
 	endif()

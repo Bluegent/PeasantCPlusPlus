@@ -1,1 +1,2 @@
 add_subdirectory(OgreSDK)
+add_subdirectory(Assets)

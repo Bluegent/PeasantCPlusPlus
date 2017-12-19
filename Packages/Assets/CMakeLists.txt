@@ -1,0 +1,15 @@
+set(ASSETS_PATH "Assets")
+set(ASSETS_DOWNLOAD_DEST ${CMAKE_CURRENT_LIST_DIR}/Assets.7z)
+if(NOT EXISTS  ${ASSETS_DOWNLOAD_DEST})
+		file(DOWNLOAD 
+		"https://drive.google.com/uc?authuser=0&id=1pv3eOroBjpoqEWGL54Gx3j3R9HevpG6y&export=download" ${ASSETS_DOWNLOAD_DEST})
+endif()
+
+if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/${ASSETS_PATH})
+    find_program(7Z_EXE 7z PATHS "$ENV{ProgramFiles}/7-Zip") 
+	if(7Z_EXE)
+		set(ZIP_ARGS x -o${ASSETS_PATH} -y ${ASSETS_DOWNLOAD_DEST})
+		execute_process(COMMAND ${7Z_EXE} ${ZIP_ARGS} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+	endif(7Z_EXE)
+endif()
+set(ASSETS_PATH ${CMAKE_CURRENT_LIST_DIR}/${ASSETS_PATH} CACHE FILEPATH "Path to extract assets package.")

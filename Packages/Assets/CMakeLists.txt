@@ -2,7 +2,7 @@ set(ASSETS_PATH "Assets")
 set(ASSETS_DOWNLOAD_DEST ${CMAKE_CURRENT_LIST_DIR}/Assets.7z)
 if(NOT EXISTS  ${ASSETS_DOWNLOAD_DEST})
 		file(DOWNLOAD 
-		"https://drive.google.com/uc?authuser=0&id=1pv3eOroBjpoqEWGL54Gx3j3R9HevpG6y&export=download" ${ASSETS_DOWNLOAD_DEST})
+		"http://serverfiles.hi2.ro/Peasants/Assets.7z" ${ASSETS_DOWNLOAD_DEST})
 endif()
 
 if(NOT EXISTS ${CMAKE_CURRENT_LIST_DIR}/${ASSETS_PATH})

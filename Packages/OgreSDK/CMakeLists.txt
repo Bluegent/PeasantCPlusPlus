@@ -4,10 +4,10 @@ set(OGRE_DOWNLOAD_DEST ${CMAKE_CURRENT_LIST_DIR}/Ogre_Rel_${OGRE_VER}.7z)
 if(NOT EXISTS  ${OGRE_DOWNLOAD_DEST})
 	if(${OGRE_VER} STREQUAL "VS2015")
 		file(DOWNLOAD 
-		"https://drive.google.com/uc?authuser=0&id=1MFFmZaisy5OdsGTCFP5m0RAzhu-_nTrc&export=download" ${OGRE_DOWNLOAD_DEST})
+		"http://serverfiles.hi2.ro/Peasants/Ogre_Rel_VS2015.7z" ${OGRE_DOWNLOAD_DEST})
 	elseif(${OGRE_VER} STREQUAL "VS2017")
 		file(DOWNLOAD 
-		"https://drive.google.com/uc?authuser=0&id=1z7D6OmytpQuMBSpS09q50ma_qUnHDfou&export=download" ${OGRE_DOWNLOAD_DEST})
+		"http://serverfiles.hi2.ro/Peasants/Ogre_Rel_VS2017.7z" ${OGRE_DOWNLOAD_DEST})
 	else()
 		message("You're shit out of luck, budddy.")
 	endif()

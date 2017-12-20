@@ -229,7 +229,7 @@ void gameLogicLoop(GameState * state)
 
 int main(int argc, char **argv)
 {
-	/*std::srand(std::time(nullptr));
+	std::srand(std::time(nullptr));
 	GameState gameState;
 	std::thread gameLogic(gameLogicLoop,&gameState);
 	OgreGame app;
@@ -239,7 +239,7 @@ int main(int argc, char **argv)
 	app.closeApp();
 
 	gameState.running = false;
-	gameLogic.join();*/
+	gameLogic.join();
 
 	return 0;
 }

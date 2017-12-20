@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 project(Peasants)
 
-add_subdirectory(Packages)
-
 set(SOURCES src/Types/BigNumber.cpp 
 	src/demo.cpp)
 set(HEADERS src/Types/BigNumber.h)
@@ -17,10 +15,6 @@ find_package(OGRE 1.10 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${OGRE_SDK_PATH}}/include)
 include_directories(${OGRE_INCLUDE_DIRS})
-
-message(${OGRE_INCLUDE_DIRS})
-message(${OGRE_LIBRARY_DIRS})
-message(${OGRE_LIBRARIES})
 
 link_directories(${OGRE_LIBRARY_DIRS})
 

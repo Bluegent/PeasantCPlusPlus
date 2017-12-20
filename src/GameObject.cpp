@@ -9,7 +9,7 @@ GameObject::GameObject(const GameObject& obj)
 {
 	if (*this != obj) 
 	{
-		m_gameEntity = obj.m_gameEntity;
+		*this = obj;
 	}
 }
 
@@ -24,6 +24,12 @@ GameObject::~GameObject()
 
 GameObject & GameObject::operator=(const GameObject & obj)
 {
+	if (*this != obj)
+	{
+		m_gameEntity = obj.m_gameEntity;
+		m_nameObject = obj.m_nameObject;
+	}
+
 	return *this;
 }
 

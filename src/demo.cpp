@@ -10,7 +10,7 @@
 #include <ctime>
 #include <cstdlib>
 
-#include "GameBase.h"
+#include "GameObject.h"
 
 using namespace Ogre;
 using namespace OgreBites;
@@ -106,11 +106,15 @@ void OgreGame::setup()
 	{
 		for (int j = 0; j < tentYNum; ++j)
 		{
-				Entity* ogreEntity3 = scnMgr->createEntity("Tent.mesh");
+				//Entity* ogreEntity3 = scnMgr->createEntity("Tent.mesh");
+				GameObject object = scnMgr->createEntity("Tent.mesh");
 				SceneNode* ogreNode3 = scnMgr->getRootSceneNode()->createChildSceneNode();
 				tents.push_back(ogreNode3);
 				ogreNode3->setPosition(i*2.5, j*2.5, 0);
 				ogreNode3->attachObject(ogreEntity3);
+
+
+
 		}
 	}
 

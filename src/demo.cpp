@@ -10,6 +10,7 @@
 #include <ctime>
 #include <cstdlib>
 
+
 using namespace Ogre;
 using namespace OgreBites;
 
@@ -109,6 +110,9 @@ void OgreGame::setup()
 				tents.push_back(ogreNode3);
 				ogreNode3->setPosition(i*2.5, j*2.5, 0);
 				ogreNode3->attachObject(ogreEntity3);
+
+
+
 		}
 	}
 
@@ -236,5 +240,6 @@ int main(int argc, char **argv)
 
 	gameState.running = false;
 	gameLogic.join();
+
 	return 0;
 }

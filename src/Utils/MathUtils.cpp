@@ -1,7 +1,9 @@
 #include "MathUtils.h"
 #include <cmath>
 
-double MathUtils::getSign(const double & value)
+int MathUtils::getSign(const double & value)
 {
-	return abs(value) / value;
+	if (value == 0)
+		return 1;
+	return (int)(abs(value) / value);
 }

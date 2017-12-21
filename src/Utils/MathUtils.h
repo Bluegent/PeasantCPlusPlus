@@ -5,7 +5,7 @@
 namespace MathUtils
 {
 	//returns -1 or 1
-	double getSign(const double & value);
+	int getSign(const double & value);
 }
 #endif // !MATH_UTILS_H
 

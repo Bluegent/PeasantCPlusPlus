@@ -14,9 +14,8 @@ find_package(OGRE 1.10 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${OGRE_SDK_PATH}}/include)
 include_directories(${OGRE_INCLUDE_DIRS})
-
+include_directories(src)
 link_directories(${OGRE_LIBRARY_DIRS})
-
-add_executable(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} ${HEADER_FILES}  ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} ${OGRE_LIBRARIES} ${OGRE_PLUGIN_LIBRARIES} ${SDL2_LIBRARY} OgreBites)

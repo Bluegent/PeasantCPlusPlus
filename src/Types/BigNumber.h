@@ -38,12 +38,23 @@ public:
 
 	BigNumberValue getValue(const uint32_t & index) const;
 
+	/*Provides an extended string of the full bignumber, IE: 123,456,789,101,112.
+	rightAlign - alings the string to the right side instead of the left.*/
 	std::string toStringE(const bool & rightAlign = false) const;
 
+	/*Provides a shortended string of the number, IE 12.345 billions.
+	longVersion - whether to use the full word or letter abbreviations for numbers, IE b or billion.*/
 	std::string toString(const bool & longVersion = true) const;
 
+	/*Provides a wide extended string of the full bignumber, IE: 123,456,789,101,112.
+	rightAlign - alings the string to the right side instead of the left.*/
+	std::wstring toStringWE(const bool & rightAlign = false) const;
+
+	/*Provides a wide shortended string of the number, IE 12.345 billions.
+	longVersion - whether to use the full word or letter abbreviations for numbers, IE b or billion.*/
+	std::wstring toStringW(const bool & longVersion = true) const;
+
 private:
-	
 	//reduces segment values to numbers under the max value and increments higher index segments accordingly
 	void normalise();
 	

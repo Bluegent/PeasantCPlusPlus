@@ -2,8 +2,11 @@
 
 #include <cmath>
 #include <cstdio>
+#include <locale>
+#include <codecvt>
+static std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 
-const uint32_t BigNumber::INTERAL_BUFFER_SIZE = 100;
+const uint32_t BigNumber::INTERAL_BUFFER_SIZE = 500;
 const uint32_t BigNumber::MAX_SEGMENT_VALUE = 1000;
 const std::vector<const char*> BigNumber::SEGMENT_STRINGS_LONG = 
 	{ ""
@@ -27,6 +30,26 @@ const std::vector<const char*> BigNumber::SEGMENT_STRINGS_LONG =
 	, "septendecillion"
 	, "octodecillion"
 	, "novemdecillion"
+	, "vigintillion"
+	, "unvigintillion"
+	, "duovigintillion"
+	, "trevigintillion"
+	, "quatturovigintillion"
+	, "quinvigintillion"
+	, "sexvigintillion"
+	, "septenvigintillion"
+	, "octovigintillion"
+	, "novemvigintillion"
+	, "trigintillion"
+	, "untrigintillion"
+	, "duotrigintillion"
+	, "tretrigintillion"
+	, "quatturotrigintillion"
+	, "quintrigintillion"
+	, "sextrigintillion"
+	, "septentrigintillion"
+	, "octotrigintillion"
+	, "novemtrigintillion"
 };
 const std::vector<const char*> BigNumber::SEGMENT_STRINGS_SHORT =
 { ""
@@ -50,6 +73,26 @@ const std::vector<const char*> BigNumber::SEGMENT_STRINGS_SHORT =
 , "SD"
 , "OD"
 , "ND"
+, "V"
+, "UV"
+, "VV"
+, "TV"
+, "qV"
+, "QV"
+, "sV"
+, "SV"
+, "OV"
+, "NV"
+, "V"
+, "UT"
+, "TT"
+, "TT"
+, "qT"
+, "QT"
+, "sT"
+, "ST"
+, "OT"
+, "NT"
 };
 
 const uint32_t BigNumber::SEGMENT_COUNT = SEGMENT_STRINGS_LONG.size();
@@ -261,10 +304,20 @@ std::string BigNumber::toString(const bool & longVersion) const
 	uint32_t topIndex = this->topIndex();
 	const char * segmentString = longVersion ? SEGMENT_STRINGS_LONG[topIndex] : SEGMENT_STRINGS_SHORT[topIndex];
 	if (topIndex > 1)
-		sprintf(buffer, "%1.0lf %s", _segments[topIndex], segmentString);
+		sprintf(buffer, "%1.0lf.%03.0lf %s", _segments[topIndex],_segments[topIndex-1], segmentString);
 	else if(topIndex == 1)
 		sprintf(buffer, "%1.0lf,%03.0lf",_segments[1], _segments[0]);
 	else 
 		sprintf(buffer, "%1.0lf", _segments[0]);
 	return std::string(buffer);
+}
+
+std::wstring BigNumber::toStringW(const bool & rightAlign) const
+{
+	return converter.from_bytes(toString(rightAlign));
+}
+
+std::wstring BigNumber::toStringWE(const bool & longVersion) const
+{
+	return converter.from_bytes(toStringE(longVersion));
 }
